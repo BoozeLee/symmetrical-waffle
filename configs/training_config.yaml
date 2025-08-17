@@ -1,0 +1,50 @@
+# Training Configuration
+
+model:
+  name: "Qwen/Qwen2.5-Coder-7B-Instruct"
+  num_labels: 3  # Positive, Negative, Neutral
+  max_length: 512
+
+training:
+  learning_rate: 2e-5
+  batch_size: 16
+  epochs: 10
+  optimizer: "AdamW"
+  scheduler: "cosine_annealing"
+  dropout_rate: 0.3
+  weight_decay: 0.01
+  label_smoothing: 0.1
+  gradient_clipping: 1.0
+  warmup_steps: 1000
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  save_steps: 1000
+  logging_steps: 100
+
+data:
+  dataset_name: "imdb"
+  train_split: "train"
+  test_split: "test"
+  validation_split: "validation"
+  preprocessing:
+    remove_special_characters: true
+    lowercase: true
+    max_length: 512
+
+polymorphic_features:
+  enable_structural_features: true
+  enable_behavioral_features: true
+  enable_dynamic_features: true
+  feature_extraction_method: "nfe"  # Novel Feature Engineering
+
+evaluation:
+  metrics:
+    - "accuracy"
+    - "f1"
+    - "precision"
+    - "recall"
+    - "roc_auc"
+  polymorphic_metrics:
+    - "adversarial_robustness"
+    - "feature_stability"
+    - "cross_variant_consistency"

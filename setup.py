@@ -1,0 +1,47 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="qwen-polymorphic-sentiment",
+    version="0.1.0",
+    author="Qwen Polymorphic Research Group",
+    description="Advanced sentiment analysis using Qwen2.5-Coder with polymorphic research integration",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/BoozeLee/qwen-polymorphic-sentiment-analysis",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: Developers",
+        "License :: Other/Proprietary License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Text Processing :: Linguistic",
+    ],
+    python_requires=">=3.8",
+    install_requires=[
+        "torch>=1.9.0",
+        "transformers>=4.20.0",
+        "datasets>=2.0.0",
+        "pandas>=1.3.0",
+        "numpy>=1.21.0",
+        "scikit-learn>=1.0.0",
+        "matplotlib>=3.4.0",
+        "seaborn>=0.11.0",
+        "plotly>=5.0.0",
+        "flask>=2.0.0",
+        "pyyaml>=6.0",
+        "pytest>=6.2.0",
+    ],
+    extras_require={
+        "dev": [
+            "jupyter>=1.0.0",
+            "notebook>=6.4.0",
+        ],
+    },
+)
